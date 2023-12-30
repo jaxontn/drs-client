@@ -5,8 +5,9 @@ const Home = () => {
 
       <br></br>
       <br></br>
-      <br></br>
       <img className="logo" src="/assets/images/drs-logo.jpeg" alt="DRS Photobooth" />
+      <br></br>
+      <br></br>
       <br></br>
       <script async
         src="https://js.stripe.com/v3/buy-button.js">

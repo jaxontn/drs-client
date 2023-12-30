@@ -1,4 +1,4 @@
-export async function GET(req, res) {
+/*export async function GET(req, res) {
 
     //Handle GET request for /api/webhook
     const users = [
@@ -10,3 +10,4 @@ export async function GET(req, res) {
     //send the user as a response
     return new Response(JSON.stringify(users))
 }
+*/

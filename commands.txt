@@ -1,0 +1,9 @@
+Created an empty folder, dragged it to 
+
+npx create-next-app@latest ./
+
+npm run dev
+
+--To Create Pages--
+I added new folders to App folder.
+e.g. http://localhost:3000/api/users will run the route.js

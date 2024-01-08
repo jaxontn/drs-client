@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Home = () => {
     const [email, setEmail] = useState('');
@@ -16,6 +16,20 @@ const Home = () => {
             alert('Please enter your email and check the box to subscribe.');
         }
     };
+
+    useEffect(() => {
+        // Load Brevo Conversations script when the component mounts
+        (function(d, w, c) {
+            w.BrevoConversationsID = '6580f96472a426285039a024';
+            w[c] = w[c] || function() {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            var s = d.createElement('script');
+            s.async = true;
+            s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'BrevoConversations');
+    }, []);  // Empty dependency array ensures this useEffect runs once when the component mounts
 
     return (
         <div>
@@ -61,7 +75,8 @@ const styles = {
     form: {
         maxWidth: '400px',
         margin: 'auto',
-        textAlign: 'center'
+        textAlign: 'center',
+        
     },
     formGroup: {
         marginBottom: '15px',
@@ -77,7 +92,7 @@ const styles = {
     },
     button: {
 
-        padding: '8px 16px',  // Smaller padding for a smaller button
+        padding: '10px 16px',  // Smaller padding for a smaller button
         backgroundColor: 'black',  // Black background color
         color: '#fff',  // White text color
         border: 'none',  // No border

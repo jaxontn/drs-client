@@ -51,12 +51,13 @@ const Home = () => {
     return (
         <div>
         {/* Purchase Button */}
-            <div style={styles.headGroup}>
-                <button>
-                    <a href="https://www.djohanrozariostudio.com/" target="_blank" style={styles.button}>Studio</a>
-                </button>
+            <div style={styles.headPadding}>
+                <div style={styles.headGroup}>
+                    <button>
+                        <a href="https://www.djohanrozariostudio.com/" target="_blank" style={styles.button}>Studio</a>
+                    </button>
 
-                <div style={styles.headPadding}>
+
                     <h3 style={styles.headText}>0 points</h3>
                 </div>
             </div>

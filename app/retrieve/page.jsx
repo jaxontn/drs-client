@@ -38,7 +38,10 @@ const Home = () => {
             <h2 style={styles.form}>DJOHAN ROZARIO STUDIO</h2>
             <br />
             <br />
-            <h1 style={styles.form}>Enter your email to retrieve your purchase(s)</h1>
+            <h1 style={styles.form}><b>---THANK YOU---</b></h1>
+            <h1 style={styles.form}>for your support</h1>
+            <br />
+            <h1 style={styles.form}>Please enter your email to retrieve your purchase(s)</h1>
             <br />
             
 

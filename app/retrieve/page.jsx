@@ -62,7 +62,8 @@ const Home = () => {
             </div>
             <br />
             <br />
-            <h2 style={styles.form}>DJOHAN ROZARIO STUDIO</h2>
+            {/*<h2 style={styles.form}>DJOHAN ROZARIO STUDIO</h2>*/}
+            <img className="logo" src="/assets/images/drs-logo.jpeg" alt="DRS Photobooth" />
             <br />
             <br />
             <h1 style={styles.form}><b>---THANK YOU---</b></h1>

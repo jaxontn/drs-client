@@ -46,7 +46,7 @@ const Home = () => {
                 
                 {/* Submit Button */}
                 <div style={styles.formGroup}>
-                    <input className="hover-effect" type="submit" value="Find" style={styles.button} />
+                    <input className="hover-effect" type="submit" value="Retrieve" style={styles.button} />
                 </div>
             </form>
 

@@ -18,7 +18,7 @@ const Home = () => {
         publishable-key="pk_test_51LZCvvAGUv6MXrzySEmwbO1kZ4RZjWH2TKlKRGNecZPzrXWSqHYmp8x0fxiLAFdYDj1fNDKDT2d9jKbcxJ0igsJD00OQs906EL"
       >
       </stripe-buy-button>
-
+      
       <p className="align-center copyright">made with ❤️ by LambdaPro Digital</p>
 
     </div>

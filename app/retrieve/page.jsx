@@ -125,7 +125,7 @@ const styles = {
         padding: '5px',
         borderRadius: '10px',  // Set border-radius to 0 for sharp corners
         border: '2px solid black',  // Thick black border
-        fontSize: '10px',
+        fontSize: '14px',
     },
     headPadding: {
         paddingTop: '10px'

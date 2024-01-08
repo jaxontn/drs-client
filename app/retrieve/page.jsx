@@ -4,12 +4,29 @@ import React, { useState, useEffect } from 'react';
 const Home = () => {
     const [email, setEmail] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         
         if (email) {
             // Process the email or perform other actions
             console.log('Email:', email);
+
+            //Do an ajax search to https://drs-api.vercel.app/api/history and retrieve the json
+            //Then display the json in a table
+
+            /*try {
+                const response = await axios.get('https://drs-api.vercel.app/api/history', { params: { userEmail: email } });
+                const data = response.data;
+    
+                // Assuming the data object contains the user's purchases
+                console.log('Purchases:', data);
+    
+                // Reset form fields
+                setEmail('');
+            } catch (error) {
+                console.error('Error:', error);
+            }*/
+
             // Reset the form fields after submission
             setEmail('');
         } else {
@@ -33,13 +50,23 @@ const Home = () => {
 
     return (
         <div>
+        {/* Purchase Button */}
+            <div style={styles.headGroup}>
+                <button>
+                    <a href="https://www.djohanrozariostudio.com/" target="_blank" style={styles.button}>Studio</a>
+                </button>
+
+                <div style={styles.headPadding}>
+                    <h3 style={styles.headText}>0 points</h3>
+                </div>
+            </div>
             <br />
             <br />
             <h2 style={styles.form}>DJOHAN ROZARIO STUDIO</h2>
             <br />
             <br />
             <h1 style={styles.form}><b>---THANK YOU---</b></h1>
-            <h1 style={styles.form}>for your support</h1>
+            <h1 style={styles.form}>for your payment</h1>
             <br />
             <h1 style={styles.form}>Please enter your email to retrieve your purchase(s)</h1>
             <br />
@@ -66,6 +93,9 @@ const Home = () => {
                     <input className="hover-effect" type="submit" value="Retrieve" style={styles.button} />
                 </div>
             </form>
+            <br />
+
+            <p className="emailReceived" style={styles.form}>Email: </p>
 
             <br />
             <p className="align-center copyright">Made with ❤️ by LambdaPro Digital</p>
@@ -83,6 +113,22 @@ const styles = {
     },
     formGroup: {
         marginBottom: '15px',
+    },
+    headGroup: {
+        marginBottom: '15px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        //top padding
+        //paddingTop: '10px',
+    },
+    headText: {
+        padding: '5px',
+        borderRadius: '10px',  // Set border-radius to 0 for sharp corners
+        border: '2px solid black',  // Thick black border
+        fontSize: '10px',
+    },
+    headPadding: {
+        paddingTop: '10px'
     },
     input: {
         padding: '10px',

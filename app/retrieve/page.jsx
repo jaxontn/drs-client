@@ -1,5 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 const Home = () => {
     const [email, setEmail] = useState('');
@@ -14,8 +16,19 @@ const Home = () => {
             //Do an ajax search to https://drs-api.vercel.app/api/history and retrieve the json
             //Then display the json in a table
 
-            /*try {
-                const response = await axios.get('https://drs-api.vercel.app/api/history', { params: { userEmail: email } });
+            // Construct the complete URL by appending the email to the endpoint
+            const userEmail = email;
+            //const url = `https://drs-api.vercel.app/api/result/${userEmail}`;
+const url = `https://drs-api.vercel.app/api/result/${encodeURIComponent(userEmail)}`;
+fetch(url, { mode: 'no-cors' })
+  .then(response => response.text())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
+            try {
+                //Get a response from a public api
+
+                const response = await axios.get(url)
                 const data = response.data;
     
                 // Assuming the data object contains the user's purchases
@@ -25,7 +38,7 @@ const Home = () => {
                 setEmail('');
             } catch (error) {
                 console.error('Error:', error);
-            }*/
+            }
 
             // Reset the form fields after submission
             setEmail('');

@@ -1,51 +1,37 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 
 const Home = () => {
     const [email, setEmail] = useState('');
 
-    const handleSubmit = async(e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
+      
         if (email) {
-            // Process the email or perform other actions
-            console.log('Email:', email);
-
-            //Do an ajax search to https://drs-api.vercel.app/api/history and retrieve the json
-            //Then display the json in a table
-
-            // Construct the complete URL by appending the email to the endpoint
-            const userEmail = email;
-            //const url = `https://drs-api.vercel.app/api/result/${userEmail}`;
-const url = `https://drs-api.vercel.app/api/result/${encodeURIComponent(userEmail)}`;
-fetch(url, { mode: 'no-cors' })
-  .then(response => response.text())
-  .then(data => console.log(data))
-  .catch(error => console.error('Error:', error));
-
-            try {
-                //Get a response from a public api
-
-                const response = await axios.get(url)
-                const data = response.data;
-    
-                // Assuming the data object contains the user's purchases
-                console.log('Purchases:', data);
-    
-                // Reset form fields
-                setEmail('');
-            } catch (error) {
-                console.error('Error:', error);
+          try {
+            const response = await fetch(`/api/getResults?userEmail=${encodeURIComponent(email)}`);
+      
+            if (response.ok) {
+              const data = await response.json();
+              console.log('Response Data:', data);
+              // Process the data as required
+            } else {
+              console.error('Failed to fetch data');
             }
-
-            // Reset the form fields after submission
-            setEmail('');
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+      
+          // Reset the form fields after submission
+          setEmail('');
         } else {
-            alert('Please enter your email and check the box to subscribe.');
+          alert('Please enter your email.');
         }
     };
+      
+
 
     useEffect(() => {
         // Load Brevo Conversations script when the component mounts
@@ -71,7 +57,7 @@ fetch(url, { mode: 'no-cors' })
                     </button>
 
 
-                    <h3 style={styles.headText}>0 points</h3>
+                    <h3 style={styles.headText}>0 pts</h3>
                 </div>
             </div>
             <br />
@@ -81,7 +67,7 @@ fetch(url, { mode: 'no-cors' })
             <br />
             <br />
             <h1 style={styles.form}><b>---THANK YOU---</b></h1>
-            <h1 style={styles.form}>for your payment</h1>
+            <h1 style={styles.form}>for your support</h1>
             <br />
             <h1 style={styles.form}>Please enter your email to retrieve your purchase(s)</h1>
             <br />
@@ -138,9 +124,12 @@ const styles = {
     },
     headText: {
         padding: '5px',
-        borderRadius: '10px',  // Set border-radius to 0 for sharp corners
+        paddingLeft: '10px',
+        paddingRight: '10px',
+        borderRadius: '15px',  // Set border-radius to 0 for sharp corners
         border: '2px solid black',  // Thick black border
         fontSize: '14px',
+        textAlign: 'center',
     },
     headPadding: {
         paddingTop: '10px'

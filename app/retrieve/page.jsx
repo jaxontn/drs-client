@@ -10,12 +10,31 @@ const Home = () => {
         e.preventDefault();
       
         if (email) {
-          
+
+                     
             //const url = "https://jsonplaceholder.typicode.com/users";
             const url = "https://drs-api.vercel.app/api/result/" + email;
       
             let response = await fetch(url);  // Make the request to get data from
             let data = await response.json(); // Convert response to JSON format
+
+            //if data.data array is not empty,
+            //display the email
+            //else display "No records found"
+            if(data.data.length > 0){      
+                // Set email text content
+                const emailElement = document.getElementById("email-id");
+                if (emailElement) {
+                    emailElement.innerHTML = "Please scroll down for records from " + email;
+                }  
+            } else {
+                // Set email text content
+                const emailElement = document.getElementById("email-id");
+                if (emailElement) {
+                    emailElement.innerHTML = "No records found";
+                }
+            }
+
             console.log(data);
 
           // Reset the form fields after submission
@@ -128,7 +147,7 @@ const Home = () => {
             </form>
             <br />
 
-            <p className="emailReceived" style={styles.form}>Email: </p>
+            <p id="email-id" className="emailReceived" style={styles.form}>Email: </p>
 
             <br />
             <p className="align-center copyright">Made with ❤️ by LambdaPro Digital</p>
@@ -156,8 +175,8 @@ const styles = {
     },
     headText: {
         padding: '5px',
-        paddingLeft: '10px',
-        paddingRight: '10px',
+        paddingLeft: '15px',
+        paddingRight: '15px',
         borderRadius: '15px',  // Set border-radius to 0 for sharp corners
         border: '1.5px solid black',  // Thick black border
         fontSize: '14px',

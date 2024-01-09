@@ -74,7 +74,10 @@ const Home = () => {
                 <div style={styles.headGroup}>
                     <button>
                         <a href="https://www.djohanrozariostudio.com/" target="_blank" style={styles.button}>Studio</a>
+                        <a href="https://djohanrozariostudio.vercel.app/" target="_blank" style={styles.button}>Package</a>
                     </button>
+
+                    
 
                     <h3 style={styles.headText}>0 pts</h3>
                 </div>
@@ -156,7 +159,7 @@ const styles = {
         paddingLeft: '10px',
         paddingRight: '10px',
         borderRadius: '15px',  // Set border-radius to 0 for sharp corners
-        border: '1px solid black',  // Thick black border
+        border: '1.5px solid black',  // Thick black border
         fontSize: '14px',
         textAlign: 'center',
     },

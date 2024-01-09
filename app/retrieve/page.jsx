@@ -18,24 +18,28 @@ const Home = () => {
             let response = await fetch(url);  // Make the request to get data from
             let data = await response.json(); // Convert response to JSON format
 
-            //if data.data array is not empty,
+            //if success false, set email-id as no records found
+            //else if success true and data.data array is not empty,
             //display the email
             //else display "No records found"
-            if(data.data.length > 0){      
-                // Set email text content
-                const emailElement = document.getElementById("email-id");
-                if (emailElement) {
-                    emailElement.innerHTML = "Please scroll down for records from " + email;
-                }  
-            } else {
+            if(data.success === false){
                 // Set email text content
                 const emailElement = document.getElementById("email-id");
                 if (emailElement) {
                     emailElement.innerHTML = "No records found";
                 }
+            } else {
+
+                if(data.data.length > 0){      
+                    // Set email text content
+                    const emailElement = document.getElementById("email-id");
+                    if (emailElement) {
+                        emailElement.innerHTML = "Please scroll down for records from " + email;
+                    }  
+                }
+
             }
 
-            console.log(data);
 
           // Reset the form fields after submission
           setEmail('');

@@ -27,6 +27,9 @@ const Home = () => {
                 const emailElement = document.getElementById("email-id");
                 if (emailElement) {
                     emailElement.innerHTML = "No records found";
+                    //add a red background box
+                    emailElement.style.backgroundColor = "red";
+                    emailElement.style.padding = "10px";
                 }
             } else {
 
@@ -35,6 +38,10 @@ const Home = () => {
                     const emailElement = document.getElementById("email-id");
                     if (emailElement) {
                         emailElement.innerHTML = "Please scroll down for records from " + email;
+                        //add a green background box
+                        emailElement.style.backgroundColor = "green";
+                        //with padding
+                        emailElement.style.padding = "10px";
                     }  
                 }
 
@@ -151,7 +158,7 @@ const Home = () => {
             </form>
             <br />
 
-            <p id="email-id" className="emailReceived" style={styles.form}>Email: </p>
+            <p id="email-id" className="emailReceived" style={styles.form}></p>
 
             <br />
             <p className="align-center copyright">Made with ❤️ by LambdaPro Digital</p>

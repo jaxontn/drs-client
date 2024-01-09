@@ -10,12 +10,31 @@ const Home = () => {
         e.preventDefault();
       
         if (email) {
+          
+            //const url = "https://jsonplaceholder.typicode.com/users";
+            const url = "https://drs-api.vercel.app/api/result/" + email;
+      
+            let response = await fetch(url);  // Make the request to get data from
+            let data = await response.json(); // Convert response to JSON format
+            console.log(data);
+
+          // Reset the form fields after submission
+          setEmail('');
+        } else {
+          alert('Please enter your email.');
+        }
+    };
+
+    /*const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        if (email) {
           try {
-            const response = await fetch(`/api/getResults?userEmail=${encodeURIComponent(email)}`);
+            const response = await fetch(`/api/getResults?email=${encodeURIComponent(email)}`);
       
             if (response.ok) {
               const data = await response.json();
-              console.log('Response Data:', data);
+              console.log(data);
               // Process the data as required
             } else {
               console.error('Failed to fetch data');
@@ -29,7 +48,8 @@ const Home = () => {
         } else {
           alert('Please enter your email.');
         }
-    };
+    };*/
+      
       
 
 
@@ -56,18 +76,27 @@ const Home = () => {
                         <a href="https://www.djohanrozariostudio.com/" target="_blank" style={styles.button}>Studio</a>
                     </button>
 
-
                     <h3 style={styles.headText}>0 pts</h3>
                 </div>
             </div>
             <br />
-            <br />
             {/*<h2 style={styles.form}>DJOHAN ROZARIO STUDIO</h2>*/}
             <img className="logo" src="/assets/images/drs-logo.jpeg" alt="DRS Photobooth" />
             <br />
+            
+
+            {/*Display instagram and facebook icon with link */}
+            <div className="social-icons" style={styles.socialGroup}>
+                <a href="https://www.instagram.com/djohanrozariostudio/" target="_blank"><img src="/assets/images/ig.svg" alt="Instagram" style={styles.socialIcon}/></a>
+                <a href="https://www.facebook.com/djohanrozariostudio" target="_blank"><img src="/assets/images/fb.svg" alt="Facebook" style={styles.socialIcon}/></a>
+                <a href="https://www.facebook.com/djohanrozariostudio" target="_blank"><img src="/assets/images/wa.svg" alt="WhatsApp" style={styles.socialIcon}/></a>
+            </div>
             <br />
+
             <h1 style={styles.form}><b>---THANK YOU---</b></h1>
             <h1 style={styles.form}>for your support</h1>
+            <br />
+
             <br />
             <h1 style={styles.form}>Please enter your email to retrieve your purchase(s)</h1>
             <br />
@@ -127,7 +156,7 @@ const styles = {
         paddingLeft: '10px',
         paddingRight: '10px',
         borderRadius: '15px',  // Set border-radius to 0 for sharp corners
-        border: '2px solid black',  // Thick black border
+        border: '1px solid black',  // Thick black border
         fontSize: '14px',
         textAlign: 'center',
     },
@@ -138,7 +167,7 @@ const styles = {
         padding: '10px',
         width: '100%',
         borderRadius: '0px',  // Set border-radius to 0 for sharp corners
-        border: '3px solid black',  // Thick black border
+        border: '2px solid black',  // Thick black border
     },
     checkbox: {
         marginRight: '10px',
@@ -152,7 +181,21 @@ const styles = {
         borderRadius: '0px',  // Set border-radius to 0 for sharp corners
         cursor: 'pointer',
         fontSize: '14px',  // Adjust font size for smaller button text
-    },    
+    }, 
+    socialIcon: {
+        width: '35px',  // Set the width
+        height: '35px', // Set the height
+        marginRight: '10px', // Add some spacing if needed
+        marginLeft: '10px',
+    },   
+    socialGroup: {
+        marginBottom: '15px',
+        display: 'flex',
+        alignItems: 'center',       // Align items vertically centered
+        justifyContent: 'center',   // Align content horizontally centered
+        
+
+    },
 };
 
 export default Home;

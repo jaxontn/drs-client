@@ -151,11 +151,18 @@ const Home = () => {
 
             <p id="email-id" className="emailReceived" style={styles.form}></p>
 
+            <div style={styles.form}>
+                <h2><b><u>Transactions</u></b></h2>
+                <div style={styles.recordList}>
+                    <p>Hi</p>
+                </div>
+            </div>
+
             {/* Display purchase data */}
             <div style={styles.form}>
                 <h2>Purchase Data</h2>
                 {purchaseData.map((purchase, index) => (
-                    <div key={index} style={styles.purchaseRow}>
+                    <div key={index} style={styles.recordList}>
                         <p><strong>Amount Received:</strong> {purchase.amount_received}</p>
                         <p><strong>Product Type:</strong> {purchase.product_type}</p>
                         <p><strong>Payment Succeed:</strong> {purchase.paymentSucceed.toString()}</p>
@@ -243,6 +250,12 @@ const styles = {
         
 
     },
+    recordList: {
+        //background color is white with black border
+        backgroundColor: 'white',
+        border: '2px solid black',
+        borderRadius: '5px',
+    }
 };
 
 export default Home;

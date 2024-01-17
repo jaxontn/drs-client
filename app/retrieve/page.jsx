@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 const Home = () => {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
+    const [purchaseData, setPurchaseData] = useState([]);
 
 
     const handleSubmit = async (e) => {
@@ -47,6 +48,10 @@ const Home = () => {
                         //with padding
                         emailElement.style.padding = "10px";
                     }  
+                }
+
+                if (data.success) {
+                    setPurchaseData(data.data);
                 }
 
             }
@@ -145,6 +150,20 @@ const Home = () => {
             <br />
 
             <p id="email-id" className="emailReceived" style={styles.form}></p>
+
+            {/* Display purchase data */}
+            <div style={styles.form}>
+                <h2>Purchase Data</h2>
+                {purchaseData.map((purchase, index) => (
+                    <div key={index} style={styles.purchaseRow}>
+                        <p><strong>Amount Received:</strong> {purchase.amount_received}</p>
+                        <p><strong>Product Type:</strong> {purchase.product_type}</p>
+                        <p><strong>Payment Succeed:</strong> {purchase.paymentSucceed.toString()}</p>
+                        <p><strong>Receipt URL:</strong> <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer">{purchase.receipt_url}</a></p>
+                        {/* Add more fields as needed */}
+                    </div>
+                ))}
+            </div>
 
             <br />
             <p className="align-center copyright">Made with ❤️ by LambdaPro Digital</p>

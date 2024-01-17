@@ -165,8 +165,15 @@ const Home = () => {
                     <div key={index} style={styles.recordList}>
                         <p><strong>Amount Received:</strong> {purchase.amount_received}</p>
                         <p><strong>Product Type:</strong> {purchase.product_type}</p>
-                        <p><strong>Payment Succeed:</strong> {purchase.paymentSucceed.toString()}</p>
-                        <p><strong>Receipt URL:</strong> <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer">{purchase.receipt_url}</a></p>
+                        <p><strong>Status: </strong></p>
+                        {/* Conditionally render based on payment success */}
+                        {purchase.paymentSucceed ? (
+                            <p style={styles.successText}>Transaction successful!</p>
+                        ) : (
+                            <p style={styles.failureText}>Transaction failed.</p>
+                        )}
+
+                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer">View Receipt</a>
                         {/* Add more fields as needed */}
                     </div>
                 ))}

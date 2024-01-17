@@ -21,7 +21,7 @@ const Home = () => {
       
             let response = await fetch(url);  // Make the request to get data from
             let data = await response.json(); // Convert response to JSON format
-
+            console.log(data);
             //if success false, set email-id as no records found
             //else if success true and data.data array is not empty,
             //display the email
@@ -41,7 +41,7 @@ const Home = () => {
                     // Set email text content
                     const emailElement = document.getElementById("email-id");
                     if (emailElement) {
-                        emailElement.innerHTML = "Please scroll down for records from " + email;
+                        emailElement.innerHTML = "Records found, please scroll down to view purchases from: " + email;
                         //add a green background box
                         emailElement.style.backgroundColor = "#90EE90";
                         //with padding

@@ -32,7 +32,7 @@ const Home = () => {
                 if (emailElement) {
                     emailElement.innerHTML = "No records found";
                     //add a red background box
-                    emailElement.style.backgroundColor = "red";
+                    emailElement.style.backgroundColor = "#EF8490";
                     emailElement.style.padding = "10px";
                 }
             } else {
@@ -43,7 +43,7 @@ const Home = () => {
                     if (emailElement) {
                         emailElement.innerHTML = "Please scroll down for records from " + email;
                         //add a green background box
-                        emailElement.style.backgroundColor = "green";
+                        emailElement.style.backgroundColor = "#90EE90";
                         //with padding
                         emailElement.style.padding = "10px";
                     }  

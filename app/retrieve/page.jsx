@@ -4,12 +4,16 @@ import React, { useState, useEffect } from 'react';
 
 const Home = () => {
     const [email, setEmail] = useState('');
+    const [loading, setLoading] = useState(false);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
       
         if (email) {
+
+            // Set loading state to true
+            setLoading(true);
 
                      
             //const url = "https://jsonplaceholder.typicode.com/users";
@@ -48,37 +52,14 @@ const Home = () => {
             }
 
 
-          // Reset the form fields after submission
-          setEmail('');
+            // Reset loading state and form fields after submission
+            setLoading(false);
+            // Reset the form fields after submission
+            setEmail('');
         } else {
           alert('Please enter your email.');
         }
     };
-
-    /*const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        if (email) {
-          try {
-            const response = await fetch(`/api/getResults?email=${encodeURIComponent(email)}`);
-      
-            if (response.ok) {
-              const data = await response.json();
-              console.log(data);
-              // Process the data as required
-            } else {
-              console.error('Failed to fetch data');
-            }
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-      
-          // Reset the form fields after submission
-          setEmail('');
-        } else {
-          alert('Please enter your email.');
-        }
-    };*/
       
       
 
@@ -153,7 +134,12 @@ const Home = () => {
                 
                 {/* Submit Button */}
                 <div style={styles.formGroup}>
-                    <input className="hover-effect" type="submit" value="Retrieve" style={styles.button} />
+                    {/* Show loading spinner or submit button based on loading state */}
+                    {loading ? (
+                        <div style={styles.loadingSpinner}></div>
+                    ) : (
+                        <input className="hover-effect" type="submit" value="Retrieve" style={styles.button} />
+                    )}
                 </div>
             </form>
             <br />
@@ -228,6 +214,14 @@ const styles = {
         justifyContent: 'center',   // Align content horizontally centered
         
 
+    },
+    loadingSpinner: {
+        border: '4px solid rgba(0, 0, 0, 0.1)',
+        borderRadius: '50%',
+        borderTop: '4px solid #000',
+        width: '20px',
+        height: '20px',
+        animation: 'spin 1s linear infinite',
     },
 };
 

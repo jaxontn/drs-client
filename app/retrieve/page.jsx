@@ -160,7 +160,7 @@ const Home = () => {
 
             {/* Display purchase data */}
             <div style={styles.form}>
-                <h2>Purchase Data</h2>
+                <h2><b><u>Transactions</u></b></h2>
                 {purchaseData.map((purchase, index) => (
                     <div key={index} style={styles.recordList}>
                         <p><strong>Amount Received:</strong> {purchase.amount_received}</p>
@@ -255,6 +255,12 @@ const styles = {
         backgroundColor: 'white',
         border: '2px solid black',
         borderRadius: '5px',
+        //padding top and bottom 5px
+        paddingTop: '5px',
+        paddingBottom: '5px',
+        //margin top and bottom 5px
+        marginTop: '5px',
+        marginBottom: '5px',
     }
 };
 

@@ -35,6 +35,7 @@ const Home = () => {
                     //add a red background box
                     emailElement.style.backgroundColor = "#EF8490";
                     emailElement.style.padding = "10px";
+                    setPurchaseData(null);
                 }
             } else {
 
@@ -151,33 +152,29 @@ const Home = () => {
 
             <p id="email-id" className="emailReceived" style={styles.form}></p>
 
-            <div style={styles.form}>
-                <h2><b><u>Transactions</u></b></h2>
-                <div style={styles.recordList}>
-                    <p>Hi</p>
+            {/* Display purchase data if there is data */}
+            {purchaseData.length > 0 && (
+                <div style={styles.form}>
+                    <h2><b><u>Transactions</u></b></h2>
+                    {purchaseData.map((purchase, index) => (
+                        <div key={index} style={styles.recordList}>
+                            <p><strong>Amount Received:</strong> {purchase.amount_received}</p>
+                            <p><strong>Product Type:</strong> {purchase.product_type}</p>
+                            <p><strong>Status: </strong></p>
+                            {/* Conditionally render based on payment success */}
+                            {purchase.paymentSucceed ? (
+                                <p style={styles.successText}>Transaction successful!</p>
+                            ) : (
+                                <p style={styles.failureText}>Transaction failed.</p>
+                            )}
+
+                            <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>Receipt</u></a>
+                            {/* Add more fields as needed */}
+                        </div>
+                    ))}
                 </div>
-            </div>
+            )}
 
-            {/* Display purchase data */}
-            <div style={styles.form}>
-                <h2><b><u>Transactions</u></b></h2>
-                {purchaseData.map((purchase, index) => (
-                    <div key={index} style={styles.recordList}>
-                        <p><strong>Amount Received:</strong> {purchase.amount_received}</p>
-                        <p><strong>Product Type:</strong> {purchase.product_type}</p>
-                        <p><strong>Status: </strong></p>
-                        {/* Conditionally render based on payment success */}
-                        {purchase.paymentSucceed ? (
-                            <p style={styles.successText}>Transaction successful!</p>
-                        ) : (
-                            <p style={styles.failureText}>Transaction failed.</p>
-                        )}
-
-                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer">View Receipt</a>
-                        {/* Add more fields as needed */}
-                    </div>
-                ))}
-            </div>
 
             <br />
             <p className="align-center copyright">Made with ❤️ by LambdaPro Digital</p>

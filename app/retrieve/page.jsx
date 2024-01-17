@@ -35,7 +35,8 @@ const Home = () => {
                     //add a red background box
                     emailElement.style.backgroundColor = "#EF8490";
                     emailElement.style.padding = "10px";
-                    setPurchaseData(null);
+                    //setPurchaseData(null);
+                    setPurchaseData([]);
                 }
             } else {
 

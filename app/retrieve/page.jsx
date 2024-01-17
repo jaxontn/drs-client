@@ -136,7 +136,7 @@ const Home = () => {
                 <div style={styles.formGroup}>
                     {/* Show loading spinner or submit button based on loading state */}
                     {loading ? (
-                        <div style={styles.loadingSpinner}></div>
+                        <input className="" type="submit" value="Searching..." style={styles.buttonPressed} disabled/>
                     ) : (
                         <input className="hover-effect" type="submit" value="Retrieve" style={styles.button} />
                     )}
@@ -201,6 +201,15 @@ const styles = {
         cursor: 'pointer',
         fontSize: '14px',  // Adjust font size for smaller button text
     }, 
+    buttonPressed: {
+
+        padding: '10px 16px',  // Smaller padding for a smaller button
+        backgroundColor: 'black',  // Black background color
+        color: '#fff',  // White text color
+        border: 'none',  // No border
+        borderRadius: '0px',  // Set border-radius to 0 for sharp corners
+        fontSize: '14px',  // Adjust font size for smaller button text
+    }, 
     socialIcon: {
         width: '35px',  // Set the width
         height: '35px', // Set the height
@@ -214,14 +223,6 @@ const styles = {
         justifyContent: 'center',   // Align content horizontally centered
         
 
-    },
-    loadingSpinner: {
-        border: '4px solid rgba(0, 0, 0, 0.1)',
-        borderRadius: '50%',
-        borderTop: '4px solid #000',
-        width: '20px',
-        height: '20px',
-        animation: 'spin 1s linear infinite',
     },
 };
 

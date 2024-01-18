@@ -53,7 +53,15 @@ const Home = () => {
                 }
 
                 if (data.success) {
+
                     setPurchaseData(data.data);
+                    // Update the 'redeemed' property for each item in the array
+                    const updatedPurchaseData = purchaseData.map(item => ({
+                        ...item,
+                        redeemed: !item.redeemed, // Toggle the boolean value
+                    }));
+                    
+                    setPurchaseData(updatedPurchaseData);
                 }
 
             }
@@ -162,7 +170,7 @@ const Home = () => {
 
                             {purchase.redeemed ? (
                                 //{/*Display with border */}
-                                <div>
+                                <div style={styles.doneList}>
                                     <p><strong>{purchase.product_type}</strong></p>
                                     <p><strong>MYR {purchase.amount_received}</strong></p>
                                     <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
@@ -172,7 +180,7 @@ const Home = () => {
                                     <p><strong>{purchase.product_type}</strong></p>
                                     <p><strong>MYR {purchase.amount_received}</strong></p>
                                     <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
-                                    <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>Connect to Photo Booth</u></a>
+                                    <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>Proceed</u></a>
                                 </div>
                                 //display without border
                             )}
@@ -274,6 +282,10 @@ const styles = {
         //margin top and bottom 5px
         marginTop: '5px',
         marginBottom: '5px',
+    },
+    doneList: {
+        //background color grey
+        backgroundColor: '#D3D3D3',
     }
 };
 

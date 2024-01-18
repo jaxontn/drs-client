@@ -173,16 +173,22 @@ const Home = () => {
                             {purchase.redeemed ? (
                                 //{/*Display with border */}
                                 <div style={styles.doneList}>
-                                    <p><strong>{purchase.product_type}</strong></p>
-                                    <p><strong>MYR {purchase.amount_received}</strong></p>
+                                    <div style={styles.listgroup}>
+                                        <p><strong>{purchase.product_type}</strong></p>
+                                        <p>MYR {purchase.amount_received}</p>
+                                    </div>
                                     <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
                                 </div>
                             ) : (
                                 <div key={index} style={styles.recordList}>
-                                    <p><strong>{purchase.product_type}</strong></p>
-                                    <p><strong>MYR {purchase.amount_received}</strong></p>
-                                    <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
-                                    <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>Proceed</u></a>
+                                    <div style={styles.listgroup}>
+                                        <p><strong>{purchase.product_type}</strong></p>
+                                        <p>MYR {purchase.amount_received}</p>
+                                    </div>
+                                    <div style={styles.listgroup}>
+                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
+                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>Proceed</u></a>
+                                    </div>
                                 </div>
                                 //display without border
                             )}
@@ -288,7 +294,19 @@ const styles = {
     doneList: {
         //background color grey
         backgroundColor: '#D3D3D3',
-    }
+        //padding top and bottom 5px
+        paddingTop: '5px',
+        paddingBottom: '5px',
+        //margin top and bottom 5px
+        marginTop: '5px',
+        marginBottom: '5px',
+    },
+    listgroup: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        //top padding
+        //paddingTop: '10px',
+    },
 };
 
 export default Home;

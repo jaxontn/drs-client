@@ -159,13 +159,15 @@ const Home = () => {
                     <h2><b><u>Transactions</u></b></h2>
                     {purchaseData.map((purchase, index) => (
                         <div key={index} style={styles.recordList}>
-                            <p><strong>Amount Received:</strong> {purchase.amount_received}</p>
-                            <p><strong>Product Type:</strong> {purchase.product_type}</p>
+                            <p><strong>{purchase.product_type}</strong></p>
+                            <p><strong>MYR {purchase.amount_received}</strong></p>
                             <p><strong>Status: </strong></p>
                             {/* Conditionally render based on payment success */}
                             {purchase.paymentSucceed ? (
+                                //{/*Display with border */}
                                 <p style={styles.successText}>Transaction successful!</p>
                             ) : (
+                                //display without border
                                 <p style={styles.failureText}>Transaction failed.</p>
                             )}
 

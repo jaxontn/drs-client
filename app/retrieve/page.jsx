@@ -158,20 +158,26 @@ const Home = () => {
                 <div style={styles.form}>
                     <h2><b><u>Transactions</u></b></h2>
                     {purchaseData.map((purchase, index) => (
-                        <div key={index} style={styles.recordList}>
-                            <p><strong>{purchase.product_type}</strong></p>
-                            <p><strong>MYR {purchase.amount_received}</strong></p>
-                            <p><strong>Status: </strong></p>
-                            {/* Conditionally render based on payment success */}
-                            {purchase.paymentSucceed ? (
+                        <div key={index}>
+
+                            {purchase.redeemed ? (
                                 //{/*Display with border */}
-                                <p style={styles.successText}>Transaction successful!</p>
+                                <div>
+                                    <p><strong>{purchase.product_type}</strong></p>
+                                    <p><strong>MYR {purchase.amount_received}</strong></p>
+                                    <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
+                                </div>
                             ) : (
+                                <div key={index} style={styles.recordList}>
+                                    <p><strong>{purchase.product_type}</strong></p>
+                                    <p><strong>MYR {purchase.amount_received}</strong></p>
+                                    <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
+                                    <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>Connect to Photo Booth</u></a>
+                                </div>
                                 //display without border
-                                <p style={styles.failureText}>Transaction failed.</p>
                             )}
 
-                            <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>Receipt</u></a>
+                            
                             {/* Add more fields as needed */}
                         </div>
                     ))}

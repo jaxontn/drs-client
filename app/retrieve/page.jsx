@@ -54,13 +54,13 @@ const Home = () => {
 
                 if (data.success) {
 
-                    setPurchaseData(data.data);
+                    //setPurchaseData(data.data);
                     // Update the 'redeemed' property for each item in the array
-                    const updatedPurchaseData = purchaseData.map(item => ({
+                    const updatedPurchaseData = data.data.map(item => ({
                         ...item,
                         redeemed: !item.redeemed, // Toggle the boolean value
                     }));
-                    
+
                     setPurchaseData(updatedPurchaseData);
                 }
 

@@ -55,11 +55,13 @@ const Home = () => {
                 if (data.success) {
 
                     //setPurchaseData(data.data);
-                    // Update the 'redeemed' property for each item in the array
-                    const updatedPurchaseData = data.data.map(item => ({
-                        ...item,
-                        redeemed: !item.redeemed, // Toggle the boolean value
-                    }));
+                    // Sort the array so that items with 'redeemed: true' come first
+                    const updatedPurchaseData = data.data.sort((a, b) => {
+                        // If 'a.redeemed' is true and 'b.redeemed' is false, put 'a' first.
+                        // If 'a.redeemed' is false and 'b.redeemed' is true, put 'b' first.
+                        // For other cases, maintain the order.
+                        return a.redeemed === b.redeemed ? 0 : a.redeemed ? -1 : 1;
+                    });
 
                     setPurchaseData(updatedPurchaseData);
                 }

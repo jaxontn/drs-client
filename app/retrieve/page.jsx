@@ -281,25 +281,16 @@ const styles = {
     },
     recordList: {
         //background color is white with black border
-        backgroundColor: 'white',
-        border: '2px solid black',
-        borderRadius: '5px',
+        //backgroundColor: 'white',
+        //border: '2px solid black',
+        //borderRadius: '5px',
         //padding top and bottom 5px
-        paddingTop: '5px',
-        paddingBottom: '5px',
+        //paddingTop: '5px',
+        //paddingBottom: '5px',
         //margin top and bottom 5px
-        marginTop: '5px',
-        marginBottom: '5px',
-    },
-    doneList: {
-        //background color grey
-      //  backgroundColor: '#D3D3D3',
-        //padding top and bottom 5px
-     //   paddingTop: '5px',
-     //   paddingBottom: '5px',
-        //margin top and bottom 5px
-     //   marginTop: '5px',
-     //   marginBottom: '5px',
+        //marginTop: '5px',
+        //marginBottom: '5px',
+
         borderRadius: '2px',
         backgroundColor: 'rgb(233, 236, 240)',
         color: 'rgb(16, 16, 16)',
@@ -313,6 +304,16 @@ const styles = {
         border: '2px solid rgb(16, 16, 16)',
         display: 'flex',
         pointerEvents: 'auto'
+    },
+    doneList: {
+        //background color grey
+        backgroundColor: '#D3D3D3',
+        //padding top and bottom 5px
+        paddingTop: '5px',
+        paddingBottom: '5px',
+        //margin top and bottom 5px
+        marginTop: '5px',
+        marginBottom: '5px',
     },
     listgroup: {
         display: 'flex',

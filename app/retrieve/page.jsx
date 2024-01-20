@@ -177,7 +177,9 @@ const Home = () => {
                                         <p><strong>{purchase.product_type}</strong></p>
                                         <p>MYR {purchase.amount_received}</p>
                                     </div>
-                                    <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
+                                    <div style={styles.listgrouplink}>
+                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
+                                    </div>
                                 </div>
                             ) : (
                                 <div key={index} style={styles.recordList}>
@@ -185,9 +187,9 @@ const Home = () => {
                                         <p><strong>{purchase.product_type}</strong></p>
                                         <p>MYR {purchase.amount_received}</p>
                                     </div>
-                                    <div style={styles.listgroup}>
+                                    <div style={styles.listgrouplink}>
                                         <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
-                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>Proceed</u></a>
+                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>Use Now</u></a>
                                     </div>
                                 </div>
                                 //display without border
@@ -292,7 +294,7 @@ const styles = {
         padding: '8px',
         margin: '16px 0px',
         border: '2px solid rgb(16, 16, 16)',
-        display: 'flex',
+        //display: 'flex',
         pointerEvents: 'auto',
         transition: 'transform 0.2s', // Adding transition for a smooth effect
         cursor: 'pointer', // Optional: Change cursor on hover
@@ -317,6 +319,11 @@ const styles = {
         //top padding
         //paddingTop: '10px',
     },
+    listgrouplink: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: '0 10%',
+    }
 };
 
 export default Home;

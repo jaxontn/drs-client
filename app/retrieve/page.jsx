@@ -293,13 +293,26 @@ const styles = {
     },
     doneList: {
         //background color grey
-        backgroundColor: '#D3D3D3',
+      //  backgroundColor: '#D3D3D3',
         //padding top and bottom 5px
-        paddingTop: '5px',
-        paddingBottom: '5px',
+     //   paddingTop: '5px',
+     //   paddingBottom: '5px',
         //margin top and bottom 5px
-        marginTop: '5px',
-        marginBottom: '5px',
+     //   marginTop: '5px',
+     //   marginBottom: '5px',
+        borderRadius: '2px',
+        backgroundColor: 'rgb(233, 236, 240)',
+        color: 'rgb(16, 16, 16)',
+        fontFamily: 'Montserrat, sans-serif',
+        textTransform: 'none',
+        boxShadow: 'rgba(0, 0, 0, 0.2) 0px 8px 0px, rgb(233, 236, 240) 0px 8px 0px',
+        fontSize: '15px',
+        minHeight: '65px',
+        padding: '8px',
+        margin: '16px 0px',
+        border: '2px solid rgb(16, 16, 16)',
+        display: 'flex',
+        pointerEvents: 'auto'
     },
     listgroup: {
         display: 'flex',

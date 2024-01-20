@@ -177,9 +177,7 @@ const Home = () => {
                                         <p><strong>{purchase.product_type}</strong></p>
                                         <p>MYR {purchase.amount_received}</p>
                                     </div>
-                                    <div style={styles.listgrouplink}>
                                         <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
-                                    </div>
                                 </div>
                             ) : (
                                 <div key={index} style={styles.recordList}>
@@ -307,11 +305,12 @@ const styles = {
         //background color grey
         backgroundColor: '#D3D3D3',
         //padding top and bottom 5px
-        paddingTop: '5px',
-        paddingBottom: '5px',
+      //  paddingTop: '5px',
+      //  paddingBottom: '5px',
         //margin top and bottom 5px
         marginTop: '5px',
         marginBottom: '5px',
+        padding: '8px',
     },
     listgroup: {
         display: 'flex',

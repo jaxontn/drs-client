@@ -180,6 +180,7 @@ const Home = () => {
                                         <p>MYR {purchase.amount_received}</p>
                                     </div>
                                     <div style={styles.listgrouplink}>
+                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
                                         <p>Claimed</p>
                                     </div>
                                 </div>

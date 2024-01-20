@@ -166,6 +166,8 @@ const Home = () => {
             {/* Display purchase data if there is data */}
             {purchaseData.length > 0 && (
                 <div style={styles.form}>
+                    <br/>
+                    <br/>
                     <h2><b><u>Transactions</u></b></h2>
                     {purchaseData.map((purchase, index) => (
                         <div key={index}>
@@ -177,7 +179,9 @@ const Home = () => {
                                         <p><strong>{purchase.product_type}</strong></p>
                                         <p>MYR {purchase.amount_received}</p>
                                     </div>
-                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
+                                    <div style={styles.listgrouplink}>
+                                        <p>Claimed</p>
+                                    </div>
                                 </div>
                             ) : (
                                 <div key={index} style={styles.recordList}>
@@ -187,7 +191,7 @@ const Home = () => {
                                     </div>
                                     <div style={styles.listgrouplink}>
                                         <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
-                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>Use Now</u></a>
+                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u><b>Use Now</b></u></a>
                                     </div>
                                 </div>
                                 //display without border

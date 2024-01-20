@@ -280,17 +280,7 @@ const styles = {
 
     },
     recordList: {
-        //background color is white with black border
-        //backgroundColor: 'white',
-        //border: '2px solid black',
-        //borderRadius: '5px',
-        //padding top and bottom 5px
-        //paddingTop: '5px',
-        //paddingBottom: '5px',
-        //margin top and bottom 5px
-        //marginTop: '5px',
-        //marginBottom: '5px',
-
+        
         borderRadius: '2px',
         backgroundColor: 'rgb(233, 236, 240)',
         color: 'rgb(16, 16, 16)',
@@ -303,7 +293,13 @@ const styles = {
         margin: '16px 0px',
         border: '2px solid rgb(16, 16, 16)',
         display: 'flex',
-        pointerEvents: 'auto'
+        pointerEvents: 'auto',
+        transition: 'transform 0.2s', // Adding transition for a smooth effect
+        cursor: 'pointer', // Optional: Change cursor on hover
+        '&:hover': {
+        transform: 'scale(1.05)' // Adjust the scale factor as needed
+        }
+        
     },
     doneList: {
         //background color grey

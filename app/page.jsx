@@ -34,4 +34,26 @@ const Home = () => {
   );
 };
 
+const styles = {
+      headGroup: {
+        marginBottom: '15px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        //top padding
+        //paddingTop: '10px',
+    },
+    headText: {
+        padding: '5px',
+        paddingLeft: '15px',
+        paddingRight: '15px',
+        borderRadius: '15px',  // Set border-radius to 0 for sharp corners
+        border: '1.5px solid black',  // Thick black border
+        fontSize: '14px',
+        textAlign: 'center',
+    },
+    headPadding: {
+        paddingTop: '10px'
+    },
+}
+
 export default Home;

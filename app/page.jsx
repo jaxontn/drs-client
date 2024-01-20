@@ -3,7 +3,16 @@ const Home = () => {
   return (
     <div>
 
-      <br></br>
+      <div style={styles.headPadding}>
+        <div style={styles.headGroup}>
+          <button>
+            <a href="https://www.djohanrozariostudio.com/" target="_blank" style={styles.button}>Studio</a>
+            <a href="https://djohanrozariostudio.vercel.app/retrieve" target="_blank" style={styles.button}>Retrieve</a>
+          </button>
+
+          <h3 style={styles.headText}>0 pts</h3>
+        </div>
+      </div>
       <br></br>
       <img className="logo" src="/assets/images/drs-logo.jpeg" alt="DRS Photobooth" />
       <br></br>

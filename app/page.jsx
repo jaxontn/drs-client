@@ -54,6 +54,16 @@ const styles = {
     headPadding: {
         paddingTop: '10px'
     },
+    button: {
+
+      padding: '10px 16px',  // Smaller padding for a smaller button
+      backgroundColor: 'black',  // Black background color
+      color: '#fff',  // White text color
+      border: 'none',  // No border
+      borderRadius: '0px',  // Set border-radius to 0 for sharp corners
+      cursor: 'pointer',
+      fontSize: '14px',  // Adjust font size for smaller button text
+    }, 
 }
 
 export default Home;

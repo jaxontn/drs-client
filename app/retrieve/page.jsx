@@ -68,7 +68,7 @@ const Home = () => {
 
                     // Calculate total purchase amount with zero decimal places
                     const totalAmount = updatedPurchaseData.reduce((total, purchase) => {
-                        return total + (purchase.redeemed ? 0 : parseFloat(purchase.amount_received));
+                        return total + parseFloat(purchase.amount_received);
                     }, 0);
 
                     setTotalPurchaseAmount(totalAmount.toFixed(0)); // Round to zero decimal places

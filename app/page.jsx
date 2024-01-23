@@ -28,8 +28,6 @@ const Home = () => {
             <a href="https://www.djohanrozariostudio.com/" target="_blank" style={styles.button}>Studio</a>
             <a href="https://djohanrozariostudio.vercel.app/retrieve" style={styles.button}>Retrieve</a>
           </button>
-
-          <h3 style={styles.headText}>0 pts</h3>
         </div>
       </div>
       <br></br>

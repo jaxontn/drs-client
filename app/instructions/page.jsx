@@ -192,7 +192,7 @@ const Home = () => {
                                     </div>
                                     <div style={styles.listgrouplink}>
                                         <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
-                                        <a href="/instructions" target="_blank" rel="noopener noreferrer"><u><b>Use Now</b></u></a>
+                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u><b>Use Now</b></u></a>
                                     </div>
                                 </div>
                                 //display without border

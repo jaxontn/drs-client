@@ -102,7 +102,7 @@ const Home = () => {
                 <div style={styles.headGroup}>
                     <button>
                         <a href="https://www.djohanrozariostudio.com/" target="_blank" style={styles.button}>Studio</a>
-                        <a href="https://djohanrozariostudio.vercel.app/" target="_blank" style={styles.button}>Package</a>
+                        <a href="https://djohanrozariostudio.vercel.app/" style={styles.button}>Package</a>
                     </button>
 
                     

@@ -97,114 +97,35 @@ const Home = () => {
 
     return (
         <div>
-        {/* Purchase Button */}
-            <div style={styles.headPadding}>
-                <div style={styles.headGroup}>
-                    <button>
-                        <a href="https://www.djohanrozariostudio.com/" target="_blank" style={styles.button}>Studio</a>
-                        <a href="https://djohanrozariostudio.vercel.app/" style={styles.button}>Package</a>
-                    </button>
-
-                    
-
-                    <h3 style={styles.headText}>0 pts</h3>
-                </div>
-            </div>
             <br />
             {/*<h2 style={styles.form}>DJOHAN ROZARIO STUDIO</h2>*/}
             <img className="logo" src="/assets/images/drs-logo.jpeg" alt="DRS Photobooth" />
             <br />
-            
 
-            {/*Display instagram and facebook icon with link */}
-            <div className="social-icons" style={styles.socialGroup}>
-                <a href="https://www.instagram.com/djohanrozariostudio/" target="_blank"><img src="/assets/images/ig.svg" alt="Instagram" style={styles.socialIcon}/></a>
-                <a href="https://www.facebook.com/djohanrozariostudio" target="_blank"><img src="/assets/images/fb.svg" alt="Facebook" style={styles.socialIcon}/></a>
-                <a href="https://www.facebook.com/djohanrozariostudio" target="_blank"><img src="/assets/images/wa.svg" alt="WhatsApp" style={styles.socialIcon}/></a>
+            <br />
+            <h1 style={styles.form}><b>STEP ONE</b></h1>
+            <h1 style={styles.form}>Pick your desired photo booth PROPS</h1>
+            <br />
+
+            <br />
+            <h1 style={styles.form}><b>STEP TWO</b></h1>
+            <h1 style={styles.form}>Gather your Friends and/or Family in front of the camera</h1>
+            <br />
+
+            <br />
+            <h1 style={styles.form}><b>READY??</b></h1>
+            <h1 style={styles.form}><u>Press Start</u>, then <b>POSE</b><br/>and a <b>10 seconds timer will start!</b></h1>
+            <br />
+
+            <br />
+            <br />
+            {/**BUTTON START */}
+            <div style={styles.form}>
+                <button>
+                    <a href="/connect" style={styles.button}>START</a>
+                </button>
             </div>
             <br />
-
-            <h1 style={styles.form}><b>---THANK YOU---</b></h1>
-            <h1 style={styles.form}>for your support</h1>
-            <br />
-
-            <br />
-            <h1 style={styles.form}>Please enter your email to retrieve your purchase(s)</h1>
-            <br />
-            
-
-            <form onSubmit={handleSubmit} style={styles.form}>
-                {/* Email Input Field */}
-                <div style={styles.formGroup}>
-                    <input 
-                        type="email" 
-                        id="userEmail" 
-                        name="userEmail" 
-                        placeholder="Email" 
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        style={styles.input}
-                    />
-                </div>
-
-                
-                {/* Submit Button */}
-                <div style={styles.formGroup}>
-                    {/* Show loading spinner or submit button based on loading state */}
-                    {loading ? (
-                        <input className="" type="submit" value="Searching..." style={styles.buttonPressed} disabled/>
-                    ) : (
-                        <input className="hover-effect" type="submit" value="Retrieve" style={styles.button} />
-                    )}
-                </div>
-            </form>
-            <br />
-
-            <p id="email-id" className="emailReceived" style={styles.form}></p>
-
-            {/* Display purchase data if there is data */}
-            {purchaseData.length > 0 && (
-                <div style={styles.form}>
-                    <br/>
-                    <br/>
-                    <h2><b><u>Transactions</u></b></h2>
-                    {purchaseData.map((purchase, index) => (
-                        <div key={index}>
-
-                            {purchase.redeemed ? (
-                                //{/*Display with border */}
-                                <div style={styles.doneList}>
-                                    <div style={styles.listgroup}>
-                                        <p><strong>{purchase.product_type}</strong></p>
-                                        <p>MYR {purchase.amount_received}</p>
-                                    </div>
-                                    <div style={styles.listgrouplink}>
-                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
-                                        <p>Claimed</p>
-                                    </div>
-                                </div>
-                            ) : (
-                                <div key={index} style={styles.recordList}>
-                                    <div style={styles.listgroup}>
-                                        <p><strong>{purchase.product_type}</strong></p>
-                                        <p>MYR {purchase.amount_received}</p>
-                                    </div>
-                                    <div style={styles.listgrouplink}>
-                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
-                                        <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u><b>Use Now</b></u></a>
-                                    </div>
-                                </div>
-                                //display without border
-                            )}
-
-                            
-                            {/* Add more fields as needed */}
-                        </div>
-                    ))}
-                </div>
-            )}
-
 
             <br />
             <p className="align-center copyright">Made with ❤️ by LambdaPro Digital</p>

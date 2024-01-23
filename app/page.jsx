@@ -18,6 +18,11 @@ const Home = () => {
       <br></br>
       <br></br>
       <br></br>
+
+      <br />
+        <h1 style={styles.form}>Please choose a package that you would like to Purchase</h1>
+      <br />
+
       <script async
         src="https://js.stripe.com/v3/buy-button.js">
       </script>

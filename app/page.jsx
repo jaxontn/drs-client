@@ -40,6 +40,15 @@ const Home = () => {
 };
 
 const styles = {
+  form: {
+    maxWidth: '400px',
+    margin: 'auto',
+    textAlign: 'center',
+    
+},
+formGroup: {
+  marginBottom: '15px',
+},
       headGroup: {
         marginBottom: '15px',
         display: 'flex',

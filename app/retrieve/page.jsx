@@ -6,6 +6,7 @@ const Home = () => {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
     const [purchaseData, setPurchaseData] = useState([]);
+    const [totalPurchaseAmount, setTotalPurchaseAmount] = useState(0); // New state variable
 
 
     const handleSubmit = async (e) => {
@@ -64,6 +65,13 @@ const Home = () => {
                     });
 
                     setPurchaseData(updatedPurchaseData);
+
+                    // Calculate total purchase amount
+                    const totalAmount = updatedPurchaseData.reduce((total, purchase) => {
+                        return total + (purchase.redeemed ? 0 : purchase.amount_received);
+                    }, 0);
+
+                    setTotalPurchaseAmount(totalAmount);
                 }
 
             }
@@ -107,7 +115,13 @@ const Home = () => {
 
                     
 
-                    <h3 style={styles.headText}>0 pts</h3>
+                    {/* Display total purchase amount */}
+                    {totalPurchaseAmount > 0 && (
+                        <h3 id="point-id" style={styles.headText}>{totalPurchaseAmount} pts</h3>
+                    )}
+                    {totalPurchaseAmount === 0 && (
+                        <h3 id="point-id" style={styles.headText}>0 pts</h3>
+                    )}
                 </div>
             </div>
             <br />

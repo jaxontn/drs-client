@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, createContext } from 'react';
 import { Link } from 'react-router-dom';
 
 
@@ -11,7 +11,8 @@ const Home = () => {
 
 
     // Use the useContext hook to get the context value
-    const myContext = useContext(null);
+    const MyContext = createContext(null);
+    const myContext = useContext(MyContext);
 
     // Check if the context is null
     if (!myContext) {

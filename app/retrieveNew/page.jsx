@@ -10,6 +10,20 @@ const Home = () => {
     const [totalPurchaseAmount, setTotalPurchaseAmount] = useState(0); // New state variable
 
 
+    // Use the useContext hook to get the context value
+    const myContext = useContext(MyContext);
+
+    // Check if the context is null
+    if (!myContext) {
+        // Handle the case when the context is null
+        // You can return null or display an error message
+        return null;
+    }
+
+    // Destructure properties from the context
+    const { basename } = myContext;
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
       

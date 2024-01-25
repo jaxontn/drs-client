@@ -1,6 +1,5 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -207,16 +206,7 @@ const Home = () => {
                                     </div>
                                     <div style={styles.listgrouplink}>
                                         <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
-                                        <Link
-                                            to={{
-                                                pathname: '/instructions',
-                                                state: { purchaseId: purchase.purchase_id }
-                                            }}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            >
-                                            <u><b>Use Now</b></u>
-                                        </Link>
+                                        <a href="/instructions" target="_blank" rel="noopener noreferrer"><u><b>Use Now</b></u></a>
                                     </div>
                                 </div>
                                 //display without border

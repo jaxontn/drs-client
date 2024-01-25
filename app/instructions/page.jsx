@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+//import { useLocation } from 'react-router-dom';
 
 
 const Home = () => {
@@ -8,8 +8,8 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const [purchaseData, setPurchaseData] = useState([]);
 
-    const location = useLocation();
-    const purchaseId = location.state?.purchaseId;
+    //const location = useLocation();
+    //const purchaseId = location.state?.purchaseId;
 
 
     const handleSubmit = async (e) => {
@@ -102,11 +102,12 @@ const Home = () => {
     return (
         <div>
             {/* Your existing code */}
-            <h1>Instructions Page</h1>
+            {/*<h1>Instructions Page</h1>
             {purchaseId && (
                 <p>Purchase ID from previous page: {purchaseId}</p>
             )}
-            
+            */}
+
             <br />
             {/*<h2 style={styles.form}>DJOHAN ROZARIO STUDIO</h2>*/}
             <img className="logo" src="/assets/images/drs-logo.jpeg" alt="DRS Photobooth" />

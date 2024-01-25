@@ -11,7 +11,7 @@ const Home = () => {
 
 
     // Use the useContext hook to get the context value
-    const myContext = useContext(MyContext);
+    const myContext = useContext(null);
 
     // Check if the context is null
     if (!myContext) {

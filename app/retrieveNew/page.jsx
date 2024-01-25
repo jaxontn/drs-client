@@ -21,60 +21,66 @@ const Home = () => {
                      
             //const url = "https://jsonplaceholder.typicode.com/users";
             const url = "https://drs-api.vercel.app/api/result/" + email;
+            
+            try{
       
-            let response = await fetch(url);  // Make the request to get data from
-            let data = await response.json(); // Convert response to JSON format
-            console.log(data);
-            //if success false, set email-id as no records found
-            //else if success true and data.data array is not empty,
-            //display the email
-            //else display "No records found"
-            if(data.success === false){
-                // Set email text content
-                const emailElement = document.getElementById("email-id");
-                if (emailElement) {
-                    emailElement.innerHTML = "No records found";
-                    //add a red background box
-                    emailElement.style.backgroundColor = "#EF8490";
-                    emailElement.style.padding = "10px";
-                    //setPurchaseData(null);
-                    setPurchaseData([]);
-                }
-            } else {
-
-                if(data.data.length > 0){      
+                let response = await fetch(url);  // Make the request to get data from
+                let data = await response.json(); // Convert response to JSON format
+                console.log(data);
+                //if success false, set email-id as no records found
+                //else if success true and data.data array is not empty,
+                //display the email
+                //else display "No records found"
+                if(data.success === false){
                     // Set email text content
                     const emailElement = document.getElementById("email-id");
                     if (emailElement) {
-                        emailElement.innerHTML = "Records found, please scroll down to view purchases from: " + email;
-                        //add a green background box
-                        emailElement.style.backgroundColor = "#90EE90";
-                        //with padding
+                        emailElement.innerHTML = "No records found";
+                        //add a red background box
+                        emailElement.style.backgroundColor = "#EF8490";
                         emailElement.style.padding = "10px";
-                    }  
+                        //setPurchaseData(null);
+                        setPurchaseData([]);
+                    }
+                } else {
+
+                    if(data.data.length > 0){      
+                        // Set email text content
+                        const emailElement = document.getElementById("email-id");
+                        if (emailElement) {
+                            emailElement.innerHTML = "Records found, please scroll down to view purchases from: " + email;
+                            //add a green background box
+                            emailElement.style.backgroundColor = "#90EE90";
+                            //with padding
+                            emailElement.style.padding = "10px";
+                        }  
+                    }
+
+                    if (data.success) {
+
+                        //setPurchaseData(data.data);
+                        // Sort the array so that items with 'redeemed: false' come first
+                        const updatedPurchaseData = data.data.sort((a, b) => {
+                            // If 'a.redeemed' is false and 'b.redeemed' is true, put 'a' first.
+                            // If 'a.redeemed' is true and 'b.redeemed' is false, put 'b' first.
+                            // For other cases, maintain the order.
+                            return a.redeemed === b.redeemed ? 0 : a.redeemed ? 1 : -1;
+                        });
+
+                        setPurchaseData(updatedPurchaseData);
+
+                        // Calculate total purchase amount with zero decimal places
+                        const totalAmount = updatedPurchaseData.reduce((total, purchase) => {
+                            return total + parseFloat(purchase.amount_received);
+                        }, 0);
+
+                        setTotalPurchaseAmount(totalAmount.toFixed(0)); // Round to zero decimal places
+                    }
+
                 }
-
-                if (data.success) {
-
-                    //setPurchaseData(data.data);
-                    // Sort the array so that items with 'redeemed: false' come first
-                    const updatedPurchaseData = data.data.sort((a, b) => {
-                        // If 'a.redeemed' is false and 'b.redeemed' is true, put 'a' first.
-                        // If 'a.redeemed' is true and 'b.redeemed' is false, put 'b' first.
-                        // For other cases, maintain the order.
-                        return a.redeemed === b.redeemed ? 0 : a.redeemed ? 1 : -1;
-                    });
-
-                    setPurchaseData(updatedPurchaseData);
-
-                    // Calculate total purchase amount with zero decimal places
-                    const totalAmount = updatedPurchaseData.reduce((total, purchase) => {
-                        return total + parseFloat(purchase.amount_received);
-                    }, 0);
-
-                    setTotalPurchaseAmount(totalAmount.toFixed(0)); // Round to zero decimal places
-                }
-
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                // Handle the error, e.g., show an error message to the user
             }
 
 

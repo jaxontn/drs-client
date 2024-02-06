@@ -1,12 +1,16 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 //import { useLocation } from 'react-router-dom';
-
+import { useSearchParams } from 'next/navigation'; //ADDED
+import { useSearchParams } from 'react-router-dom';
 
 const Home = () => {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
     const [purchaseData, setPurchaseData] = useState([]);
+
+    const useSearchParams = useSearchParams(); //ADDED
+    console.log(useSearchParams.get("email")); //ADDED
 
     //const location = useLocation();
     //const purchaseId = location.state?.purchaseId;

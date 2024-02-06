@@ -154,13 +154,16 @@ const Home = () => {
                     )}
                 </button>
 
-                <button>
-                    {order && (
-                        <a href="/retrieve" style={styles.buttonPressed}>CANCEL</a>
-                    )}
-                </button>
-
             </div>
+
+            {/**BUTTON CANCEL */}
+            {order && (
+                <div style={styles.form}>
+                    <button>
+                        <a href="/retrieve" style={styles.buttonHollow}>CANCEL</a>
+                    </button>
+                </div>
+            )}
             
             <br />
 
@@ -219,6 +222,16 @@ const styles = {
         cursor: 'pointer',
         fontSize: '14px',  // Adjust font size for smaller button text
     }, 
+    //Hollow button transparent with black border
+    buttonHollow: {
+        padding: '10px 16px',  // Smaller padding for a smaller button
+        backgroundColor: 'transparent',  // Transparent background color
+        color: 'black',  // Black text color
+        border: '2px solid black',  // Thick black border
+        borderRadius: '0px',  // Set border-radius to 0 for sharp corners
+        cursor: 'pointer',
+        fontSize: '14px',  // Adjust font size for smaller button text
+    },
     buttonPressed: {
 
         padding: '10px 16px',  // Smaller padding for a smaller button

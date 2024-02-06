@@ -156,6 +156,7 @@ const Home = () => {
 
             </div>
 
+            <br />
             {/**BUTTON CANCEL */}
             {order && (
                 <div style={styles.form}>

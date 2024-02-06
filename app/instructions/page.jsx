@@ -9,8 +9,10 @@ const Home = () => {
     const [purchaseData, setPurchaseData] = useState([]);
 
     const searchParams = useSearchParams(); // Updated variable name
-    console.log(searchParams.get("email")); // Use the new variable name
+    console.log(searchParams.get("refid")); // Use the new variable name
 
+    //setOrder to the value of refid with stat
+    const [order, setOrder] = useState(searchParams.get("refid"));
 
     //const location = useLocation();
     //const purchaseId = location.state?.purchaseId;
@@ -116,6 +118,13 @@ const Home = () => {
             {/*<h2 style={styles.form}>DJOHAN ROZARIO STUDIO</h2>*/}
             <img className="logo" src="/assets/images/drs-logo.jpeg" alt="DRS Photobooth" />
             <br />
+            {/* Display total purchase amount */}
+            {totalPurchaseAmount > 0 && (
+                <h3 id="point-id" style={styles.headText}>Reference ID: {order}</h3>
+            )}
+            {totalPurchaseAmount === 0 && (
+                <h3 id="point-id" style={styles.headText}>No Reference ID</h3>
+            )}
 
             <br />
             <h1 style={styles.form}><b>STEP ONE</b></h1>

@@ -8,8 +8,9 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const [purchaseData, setPurchaseData] = useState([]);
 
-    const useSearchParams = useSearchParams(); //ADDED
-    console.log(useSearchParams.get("email")); //ADDED
+    const searchParams = useSearchParams(); // Updated variable name
+    console.log(searchParams.get("email")); // Use the new variable name
+
 
     //const location = useLocation();
     //const purchaseId = location.state?.purchaseId;

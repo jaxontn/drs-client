@@ -132,14 +132,12 @@ const Home = () => {
             <h1 style={styles.form}>Pick your desired photo booth PROPS</h1>
             <br />
 
-            <br />
             <h1 style={styles.form}><b>STEP TWO</b></h1>
             <h1 style={styles.form}>Gather your Friends and/or Family in front of the camera</h1>
             <br />
 
-            <br />
             <h1 style={styles.form}><b>READY??</b></h1>
-            <h1 style={styles.form}><u>Press Start</u>, then <b>POSE</b><br/>and a <b>10 seconds timer will start!</b></h1>
+            <h1 style={styles.form}><u>Press Start Photobooth</u>, then <b>POSE</b><br/>and a <b>10 seconds timer will start!</b></h1>
             <br />
 
             <br />
@@ -155,6 +153,13 @@ const Home = () => {
                         <a href="/retrieve" style={styles.button}><b>SELECT ORDER</b></a>
                     )}
                 </button>
+
+                <button>
+                    {order && (
+                        <a href="/retrieve" style={styles.buttonPressed}>CANCEL</a>
+                    )}
+                </button>
+
             </div>
             
             <br />

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 //import { useLocation } from 'react-router-dom';
 import { useSearchParams } from 'next/navigation'; //ADDED
+import Link from 'next/link'; //ADDED
 
 const Home = () => {
     const [email, setEmail] = useState('');
@@ -147,7 +148,9 @@ const Home = () => {
             <div style={styles.form}>
                 <button>
                     {order ? (
-                        <a href="/connect" style={styles.button}>START</a>
+                        <Link href={`/connect?refid=${order}`} passHref>
+                            <a target="_blank" rel="noopener noreferrer"><u><b>START PHOTOBOOTH</b></u></a>
+                        </Link>
                     ) : (
                         <a href="/retrieve" style={styles.button}>SELECT ORDER</a>
                     )}

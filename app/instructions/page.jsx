@@ -146,9 +146,14 @@ const Home = () => {
             {/**BUTTON START */}
             <div style={styles.form}>
                 <button>
-                    <a href="/connect" style={styles.button}>START</a>
+                    {order ? (
+                        <a href="/connect" style={styles.button}>START</a>
+                    ) : (
+                        <a href="/retrieve" style={styles.button}>SELECT ORDER</a>
+                    )}
                 </button>
             </div>
+            
             <br />
 
             <br />

@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 //import { useLocation } from 'react-router-dom';
 import { useSearchParams } from 'next/navigation'; //ADDED
-import { useSearchParams } from 'react-router-dom';
 
 const Home = () => {
     const [email, setEmail] = useState('');

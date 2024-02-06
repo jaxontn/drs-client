@@ -121,9 +121,9 @@ const Home = () => {
             <br />
             {/* Display order id */}
             {order ? (
-                <h3 id="point-id" style={styles.headText}>Reference ID: {order}</h3>
+                <h3 id="point-id" style={styles.headText}><b>Reference ID:</b><br/> {order}</h3>
             ) : (
-                <h3 id="point-id" style={styles.headText}>No Reference ID</h3>
+                <h3 id="point-id" style={styles.headText}><b>No Reference ID</b></h3>
             )}
 
 
@@ -152,7 +152,7 @@ const Home = () => {
                             <a target="_blank" rel="noopener noreferrer" style={styles.button}><b>START PHOTOBOOTH</b></a>
                         </Link>
                     ) : (
-                        <a href="/retrieve" style={styles.button}>SELECT ORDER</a>
+                        <a href="/retrieve" style={styles.button}><b>SELECT ORDER</b></a>
                     )}
                 </button>
             </div>

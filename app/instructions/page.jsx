@@ -149,7 +149,7 @@ const Home = () => {
                 <button>
                     {order ? (
                         <Link href={`/connect?refid=${order}`} passHref>
-                            <a target="_blank" rel="noopener noreferrer"><u><b>START PHOTOBOOTH</b></u></a>
+                            <a target="_blank" rel="noopener noreferrer" style={styles.button}><b>START PHOTOBOOTH</b></a>
                         </Link>
                     ) : (
                         <a href="/retrieve" style={styles.button}>SELECT ORDER</a>

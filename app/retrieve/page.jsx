@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link'; //ADDED
 
 
 const Home = () => {
@@ -206,7 +207,10 @@ const Home = () => {
                                     </div>
                                     <div style={styles.listgrouplink}>
                                         <a href={purchase.receipt_url} target="_blank" rel="noopener noreferrer"><u>View Receipt</u></a>
-                                        <a href="/instructions" target="_blank" rel="noopener noreferrer"><u><b>Use Now</b></u></a>
+                                        {/* Use Link to navigate to /instructions and pass purchase.id as a query parameter */}
+                                        <Link href={`/instructions?refid=${purchase.id}`} passHref>
+                                            <a target="_blank" rel="noopener noreferrer"><u><b>Use Now</b></u></a>
+                                        </Link>
                                     </div>
                                 </div>
                                 //display without border
